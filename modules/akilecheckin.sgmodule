@@ -6,7 +6,7 @@
 
 [Script]
 AkileToken = type=http-request, pattern=^https:\/\/api\.akile\.ai\/, script-path=akile token.js, argument="ENABLE_CAPTURE={{{Token捕获}}}", timeout=10
-AkileCheckin = type=cron, cronexp="{{{签到分钟}}} {{{签到小时}}} * * *", script-path=akile token.js, timeout=30
+AkileCheckin = type=cron, cronexp="{{{签到分钟}}} {{{签到小时}}} * * *", script-path=https://raw.githubusercontent.com/upperwizard/shadowrocket/main/scripts/akile.js, timeout=30
 akile = type=http-request,engine=jsc,script-path=akile token.js,pattern=^https:\/\/api\.akile\.ai\/,max-size=131072,timeout=10,script-update-interval=0,argument=ENABLE_CAPTURE=true,enable=true
 
 [MITM]

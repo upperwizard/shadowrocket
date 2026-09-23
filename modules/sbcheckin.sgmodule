@@ -7,7 +7,7 @@
 [Script]
 SBToken = type=http-request, pattern=^https:\/\/sb\.sb\/, script-path=sb.js, argument="ENABLE_CAPTURE={{{Token捕获}}}", timeout=10
 SBCheckin = type=cron, cronexp="{{{签到分钟}}} {{{签到小时}}} * * *", script-path=sb.js, timeout=30
-sb = type=http-request,engine=jsc,script-path=sb.js,pattern=^https:\/\/sb\.sb\/,max-size=131072,timeout=10,script-update-interval=0,argument=ENABLE_CAPTURE={{{Token捕获}}},enable=true
+sb = type=http-request,engine=jsc,script-path=https://raw.githubusercontent.com/upperwizard/shadowrocket/main/scripts/sb.js,pattern=^https:\/\/sb\.sb\/,max-size=131072,timeout=10,script-update-interval=0,argument=ENABLE_CAPTURE={{{Token捕获}}},enable=true
 
 [MITM]
 hostname = %APPEND% sb.sb

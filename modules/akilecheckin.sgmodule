@@ -1,0 +1,16 @@
+#!name=Akile Checkin
+#!desc=Akile VPS 自动签到
+#!author=Custom
+
+#!arguments=签到小时:0, 签到分钟:3, Token捕获:false
+#!arguments-desc=参数说明:\n\n - 签到小时: 0-23点\n\n - 签到分钟: 0-59分\n\n - Token捕获: false=关闭, true=开启
+
+[Script]
+
+AkileToken = type=http-request, pattern=^https:\/\/api\.akile\.ai\/, script-path=akile token.js, argument="ENABLE_CAPTURE={{{Token捕获}}}", timeout=10
+
+AkileCheckin = type=cron, cronexp="{{{签到分钟}}} {{{签到小时}}} * * *", script-path=akile token.js, timeout=30
+
+[MITM]
+
+hostname = %APPEND% api.akile.ai
